@@ -39,3 +39,9 @@ img {
 .gradient-text {
   @apply bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent;
 }
+
+.container {
+  width: 90%;
+  max-width: 1400px;
+  margin: auto;
+}
