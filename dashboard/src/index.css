@@ -9,7 +9,18 @@
 }
 
 body{
-  font-family: Inter, sans-serif;
   background:#020617;
   color:white;
+  font-family:sans-serif;
+}
+
+a{
+  text-decoration:none;
+  color:inherit;
+}
+
+.container{
+  width:90%;
+  max-width:1400px;
+  margin:auto;
 }
