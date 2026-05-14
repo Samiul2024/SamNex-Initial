@@ -1,48 +1,77 @@
+import {
+  useEffect,
+  useState,
+} from "react"
+
 import SectionTitle from "../../ui/SectionTitle"
 
-const projects = [
-  {
-    title: "Enterprise Dashboard",
-    category: "Analytics Platform",
-  },
-
-  {
-    title: "AI Automation SaaS",
-    category: "Automation System",
-  },
-
-  {
-    title: "Modern E-Commerce",
-    category: "Full Stack MERN",
-  },
-]
+import { getProjects } from "../../../services/projectService"
 
 const ProjectsPreview = () => {
+  const [projects, setProjects] =
+    useState([])
+
+  useEffect(() => {
+    const fetchProjects =
+      async () => {
+        try {
+          const data =
+            await getProjects()
+
+          setProjects(data.projects)
+        } catch (error) {
+          console.log(error)
+        }
+      }
+
+    fetchProjects()
+  }, [])
+
   return (
     <section className="section-padding">
       <div className="container">
         <SectionTitle
           badge="Projects"
           title="Selected Work & Case Studies"
-          description="A glimpse of scalable systems and premium digital products built with modern technologies."
+          description="Real projects and scalable systems built with modern technologies."
         />
 
         <div className="grid gap-8 md:grid-cols-3">
-          {projects.map((project, index) => (
+          {projects.map((project) => (
             <div
-              key={index}
+              key={project._id}
               className="overflow-hidden rounded-2xl border border-white/10 bg-secondary"
             >
-              <div className="h-56 bg-gradient-to-br from-primary/40 to-accent/30"></div>
+              <img
+                src={project.thumbnail}
+                alt={project.title}
+                className="h-56 object-cover"
+              />
 
               <div className="p-6">
                 <p className="mb-2 text-sm text-accent">
                   {project.category}
                 </p>
 
-                <h3 className="text-2xl font-bold">
+                <h3 className="mb-4 text-2xl font-bold">
                   {project.title}
                 </h3>
+
+                <div className="flex flex-wrap gap-2">
+                  {project.technologies?.map(
+                    (
+                      tech,
+                      index
+                    ) => (
+                      <span
+                        key={index}
+                        className="rounded-full bg-dark px-3 py-1 text-sm"
+                      >
+                        {tech}
+                      </span>
+                    )
+                  )}
+                </div>
               </div>
             </div>
           ))}
