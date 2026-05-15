@@ -1,53 +1,124 @@
-const cards = [
-  {
-    title: "Total Projects",
-    value: "12",
-  },
+import {
+  useEffect,
+  useState,
+} from "react"
 
-  {
-    title: "Active Clients",
-    value: "5",
-  },
+import StatsCard from "../components/dashboard/StatsCard"
 
-  {
-    title: "Bookings",
-    value: "18",
-  },
+import BookingsChart from "../components/dashboard/BookingsChart"
 
-  {
-    title: "Revenue",
-    value: "$4.2K",
-  },
-]
+import ProjectsChart from "../components/dashboard/ProjectsChart"
+
+import { getDashboardStats } from "../services/dashboardService"
 
 const DashboardHome = () => {
+  const [stats, setStats] =
+    useState(null)
+
+  const admin = JSON.parse(
+    localStorage.getItem("admin")
+  )
+
+  useEffect(() => {
+    const fetchStats =
+      async () => {
+        try {
+          const data =
+            await getDashboardStats(
+              admin.token
+            )
+
+          setStats(data.stats)
+        } catch (error) {
+          console.log(error)
+        }
+      }
+
+    fetchStats()
+  }, [])
+
+  if (!stats) {
+    return (
+      <div>
+        Loading dashboard...
+      </div>
+    )
+  }
+
+  const bookingData = [
+    {
+      name: "Bookings",
+      value:
+        stats.totalBookings,
+    },
+  ]
+
+  const projectData = [
+    {
+      name: "Planning",
+      value:
+        stats.planningProjects,
+    },
+
+    {
+      name: "Active",
+      value:
+        stats.activeProjects,
+    },
+
+    {
+      name: "Completed",
+      value:
+        stats.completedProjects,
+    },
+  ]
+
   return (
     <div>
       <div className="mb-10">
         <h1 className="text-4xl font-black">
-          Welcome Back 👋
+          Dashboard Overview
         </h1>
-
-        <p className="mt-2 text-gray-400">
-          Here's your agency overview.
-        </p>
       </div>
 
-      <div className="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
-        {cards.map((card, index) => (
-          <div
-            key={index}
-            className="rounded-2xl border border-white/10 bg-secondary p-6"
-          >
-            <p className="text-gray-400">
-              {card.title}
-            </p>
+      <div className="mb-10 grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+        <StatsCard
+          title="Total Bookings"
+          value={
+            stats.totalBookings
+          }
+        />
 
-            <h2 className="mt-4 text-4xl font-black text-primary">
-              {card.value}
-            </h2>
-          </div>
-        ))}
+        <StatsCard
+          title="Total Projects"
+          value={
+            stats.totalProjects
+          }
+        />
+
+        <StatsCard
+          title="Completed Projects"
+          value={
+            stats.completedProjects
+          }
+        />
+
+        <StatsCard
+          title="Active Projects"
+          value={
+            stats.activeProjects
+          }
+        />
+      </div>
+
+      <div className="grid gap-8 lg:grid-cols-2">
+        <BookingsChart
+          data={bookingData}
+        />
+
+        <ProjectsChart
+          data={projectData}
+        />
       </div>
     </div>
   )

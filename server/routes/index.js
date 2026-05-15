@@ -4,6 +4,7 @@ import authRoutes from "./authRoutes.js"
 import bookingRoutes from "./bookingRoutes.js"
 import projectRoutes from "./projectRoutes.js"
 import uploadRoutes from "./uploadRoutes.js"
+import dashboardRoutes from "./dashboardRoutes.js"
 
 const router = express.Router()
 
@@ -21,5 +22,7 @@ router.use("/bookings", bookingRoutes)
 router.use("/projects", projectRoutes)
 
 router.use("/upload", uploadRoutes)
+
+router.use("/dashboard", dashboardRoutes)
 
 export default router
