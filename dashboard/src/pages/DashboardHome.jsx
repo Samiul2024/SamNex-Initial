@@ -9,6 +9,8 @@ import BookingsChart from "../components/dashboard/BookingsChart"
 
 import ProjectsChart from "../components/dashboard/ProjectsChart"
 
+import AdminChat from "../components/chat/AdminChat"
+
 import { getDashboardStats } from "../services/dashboardService"
 
 const DashboardHome = () => {
@@ -111,7 +113,7 @@ const DashboardHome = () => {
         />
       </div>
 
-      <div className="grid gap-8 lg:grid-cols-2">
+      <div className="mb-10 grid gap-8 lg:grid-cols-2">
         <BookingsChart
           data={bookingData}
         />
@@ -120,6 +122,8 @@ const DashboardHome = () => {
           data={projectData}
         />
       </div>
+
+      <AdminChat />
     </div>
   )
 }
