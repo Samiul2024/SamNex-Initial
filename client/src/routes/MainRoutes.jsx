@@ -1,38 +1,41 @@
-import {
-  BrowserRouter,
-  Routes,
-  Route,
-} from "react-router-dom"
+import { Routes, Route } from "react-router-dom"
 
 import MainLayout from "../layouts/MainLayout"
-import ProjectDetails from "../pages/projects/ProjectDetails"
 
 import Home from "../pages/Home"
-import Services from "../pages/Services"
 import Projects from "../pages/Projects"
-import Booking from "../pages/Booking"
 import Contact from "../pages/Contact"
-import NotFound from "../pages/NotFound"
+import Services from "../pages/Services"
+import ProjectDetails from "../pages/projects/ProjectDetails"
+
 
 const MainRoutes = () => {
   return (
-    <BrowserRouter>
-      <Routes>
-        <Route element={<MainLayout />}>
-          <Route path="/" element={<Home />} />
-          <Route path="/services" element={<Services />} />
-          <Route path="/projects" element={<Projects />} />
-          <Route path="/booking" element={<Booking />} />
-          <Route path="/contact" element={<Contact />} />
-          <Route
-            path="/projects/:slug"
-            element={<ProjectDetails />}
-          />
-        </Route>
+    <Routes>
+      <Route path="/" element={<MainLayout />}>
+        <Route index element={<Home />} />
 
-        <Route path="*" element={<NotFound />} />
-      </Routes>
-    </BrowserRouter>
+        <Route
+          path="projects"
+          element={<Projects />}
+        />
+
+        <Route
+          path="projects/:slug"
+          element={<ProjectDetails />}
+        />
+
+        <Route
+          path="services"
+          element={<Services />}
+        />
+
+        <Route
+          path="contact"
+          element={<Contact />}
+        />
+      </Route>
+    </Routes>
   )
 }
 
