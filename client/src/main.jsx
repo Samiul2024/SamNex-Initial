@@ -1,16 +1,29 @@
-import React from 'react'
-import ReactDOM from 'react-dom/client'
+import React from "react"
 
-import App from './App.jsx'
+import ReactDOM from "react-dom/client"
 
-import './index.css'
+import {
+  BrowserRouter,
+} from "react-router-dom"
 
-import { Toaster } from 'react-hot-toast'
+import {
+  HelmetProvider,
+} from "react-helmet-async"
 
-ReactDOM.createRoot(document.getElementById('root')).render(
+import App from "./App"
+
+import "./index.css"
+
+ReactDOM.createRoot(
+  document.getElementById(
+    "root"
+  )
+).render(
   <React.StrictMode>
-    <Toaster position="top-right" />
-
-    <App />
-  </React.StrictMode>,
+    <HelmetProvider>
+      <BrowserRouter>
+        <App />
+      </BrowserRouter>
+    </HelmetProvider>
+  </React.StrictMode>
 )

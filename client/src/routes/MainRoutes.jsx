@@ -5,6 +5,7 @@ import {
 } from "react-router-dom"
 
 import MainLayout from "../layouts/MainLayout"
+import ProjectDetails from "../pages/projects/ProjectDetails"
 
 import Home from "../pages/Home"
 import Services from "../pages/Services"
@@ -23,6 +24,10 @@ const MainRoutes = () => {
           <Route path="/projects" element={<Projects />} />
           <Route path="/booking" element={<Booking />} />
           <Route path="/contact" element={<Contact />} />
+          <Route
+            path="/projects/:slug"
+            element={<ProjectDetails />}
+          />
         </Route>
 
         <Route path="*" element={<NotFound />} />
