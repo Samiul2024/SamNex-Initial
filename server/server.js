@@ -11,9 +11,9 @@ import connectDB from "./config/db.js"
 
 import routes from "./routes/index.js"
 
-import { notFound } from "./middleware/notFound.js"
+import  notFound  from "./middleware/notFound.js"
 
-import { errorHandler } from "./middleware/errorMiddleware.js"
+import  errorHandler  from "./middleware/errorMiddleware.js"
 
 import setupSocket from "./socket.js"
 
@@ -25,15 +25,26 @@ const app = express()
 
 const server = http.createServer(app)
 
+const allowedOrigins = [
+  process.env.CLIENT_URL,
+  process.env.DASHBOARD_URL,
+]
+
+app.use(
+  cors({
+    origin: allowedOrigins,
+    credentials: true,
+  })
+)
+
 const io = new Server(server, {
   cors: {
-    origin: "*",
+    origin: allowedOrigins,
+    credentials: true,
   },
 })
 
 setupSocket(io)
-
-app.use(cors())
 
 app.use(express.json())
 
