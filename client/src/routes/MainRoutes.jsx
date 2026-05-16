@@ -7,7 +7,7 @@ import Projects from "../pages/Projects"
 import Contact from "../pages/Contact"
 import Services from "../pages/Services"
 import ProjectDetails from "../pages/projects/ProjectDetails"
-
+import Booking from "../pages/Booking"
 
 const MainRoutes = () => {
   return (
@@ -29,6 +29,9 @@ const MainRoutes = () => {
           path="services"
           element={<Services />}
         />
+
+          <Route path="/booking" element={<Booking />} />
+
 
         <Route
           path="contact"
