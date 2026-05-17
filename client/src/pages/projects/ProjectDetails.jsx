@@ -9,14 +9,14 @@ import {
 
 import SEO from "../../components/seo/SEO"
 
-import { projectsData } from "../../data/projectsData"
+import { projects } from "../../data/projects"
 
 const ProjectDetails = () => {
   const { slug } =
     useParams()
 
   const project =
-    projectsData.find(
+    projects.find(
       (p) =>
         p.slug === slug
     )
