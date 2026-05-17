@@ -28,7 +28,7 @@ const HeroSection = () => {
           className="max-w-5xl"
         >
           <p className="mb-5 text-sm font-semibold uppercase tracking-widest text-accent">
-            AI-Assisted Software Agency
+            AI-Assisted Web  Agency
           </p>
 
           <h1 className="mb-8 text-5xl font-black leading-tight md:text-7xl">

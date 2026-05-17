@@ -1,6 +1,11 @@
+import { useNavigate } from "react-router-dom"
 import PrimaryButton from "../../ui/PrimaryButton"
 
 const CTASection = () => {
+
+  const navigate =
+    useNavigate()
+
   return (
     <section className="section-padding">
       <div className="container">
@@ -10,13 +15,23 @@ const CTASection = () => {
           </h2>
 
           <p className="mx-auto mb-8 max-w-2xl text-lg text-gray-300">
-            Launch scalable modern systems with SamNex —
-            your AI-assisted software development partner.
+            Launch scalable modern Websites / systems with SamNex —
+            your AI-assisted Web development partner.
           </p>
 
-          <PrimaryButton>
-            Book A Consultation
-          </PrimaryButton>
+          <div
+            onClick={() =>
+              navigate(
+                "/booking"
+              )
+            }
+          >
+            <PrimaryButton>
+              Book A Consultation
+            <p className="text-xs text-black">It's free</p>
+            </PrimaryButton>
+          </div>
+
         </div>
       </div>
     </section>

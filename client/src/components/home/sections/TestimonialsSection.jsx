@@ -1,29 +1,29 @@
 const testimonials = [
   {
-    name: "Startup Founder",
+    name: "Sadik Rahman",
 
     text: "SamNex delivered a premium modern platform that exceeded expectations.",
 
     company:
-      "Tech Startup",
+      "Aam Bari",
   },
 
   {
-    name: "Business Owner",
+    name: "Founder",
 
     text: "Professional workflow, modern UI, and excellent communication throughout development.",
 
     company:
-      "Restaurant Business",
+      "Sam Cafe",
   },
 
   {
-    name: "Agency Client",
+    name: "MD. Samiulla Hossen",
 
     text: "The platform performance and scalability were impressive from day one.",
 
     company:
-      "Digital Brand",
+      "Mollick Family",
   },
 ]
 

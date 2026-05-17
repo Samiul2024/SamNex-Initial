@@ -15,7 +15,7 @@ const ServicesPreview = () => {
       <div className="container">
         <SectionTitle
           badge="Services"
-          title="High Performance Software Solutions"
+          title="High Performance Website Solutions"
           description="We build scalable digital systems that help businesses automate, grow, and dominate online."
         />
 

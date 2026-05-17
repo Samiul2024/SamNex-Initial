@@ -3,7 +3,7 @@ const Footer = () => {
     <footer className="border-t border-white/10 py-10">
       <div className="container text-center text-sm text-gray-400">
         <p>
-          © 2026 SamNex. AI-Assisted Software Agency.
+          © 2026 SamNex. AI-Assisted Web Agency.
         </p>
       </div>
     </footer>
