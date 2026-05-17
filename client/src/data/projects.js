@@ -9,7 +9,7 @@ export const projects = [
     category: "Restaurant Platform",
 
     image:
-      "https://images.unsplash.com/photo-1555396273-367ea4eb4db5",
+      "https://res.cloudinary.com/dejhl0l7a/image/upload/v1779011423/aam-bari_cx6wih.jpg",
 
     live:
       "https://aam-bari.vercel.app/",
@@ -35,7 +35,7 @@ export const projects = [
     category: "Cafe Website",
 
     image:
-      "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085",
+      "https://res.cloudinary.com/dejhl0l7a/image/upload/v1779011424/sam-cafe_zwqnd4.jpg",
 
     live:
       "https://sam-cafe.vercel.app/",
@@ -60,7 +60,7 @@ export const projects = [
     category: "Brand Website",
 
     image:
-      "https://images.unsplash.com/photo-1522202176988-66273c2fd55f",
+      "https://res.cloudinary.com/dejhl0l7a/image/upload/v1779011423/bongsho_tk5tqs.jpg",
 
     live:
       "https://bongsho.vercel.app/",

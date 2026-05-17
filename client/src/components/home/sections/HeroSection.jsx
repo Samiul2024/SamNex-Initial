@@ -1,14 +1,30 @@
 import { motion } from "framer-motion"
+
+import {
+  useNavigate,
+} from "react-router-dom"
+
 import PrimaryButton from "../../ui/PrimaryButton"
 
 const HeroSection = () => {
+  const navigate =
+    useNavigate()
+
   return (
-    <section className="relative overflow-hidden section-padding">
+    <section className="section-padding relative overflow-hidden">
       <div className="container">
         <motion.div
-          initial={{ opacity: 0, y: 80 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.7 }}
+          initial={{
+            opacity: 0,
+            y: 80,
+          }}
+          animate={{
+            opacity: 1,
+            y: 0,
+          }}
+          transition={{
+            duration: 0.7,
+          }}
           className="max-w-5xl"
         >
           <p className="mb-5 text-sm font-semibold uppercase tracking-widest text-accent">
@@ -21,16 +37,33 @@ const HeroSection = () => {
 
           <p className="mb-10 max-w-3xl text-lg leading-8 text-gray-400 md:text-xl">
             SamNex designs and develops premium web applications,
-            SaaS platforms, dashboards, automation systems,
+            SaaS platforms,
+            dashboards,
+            automation systems,
             and AI-powered business solutions.
           </p>
 
           <div className="flex flex-wrap gap-4">
-            <PrimaryButton>
-              Start A Project
-            </PrimaryButton>
+            <div
+              onClick={() =>
+                navigate(
+                  "/contact"
+                )
+              }
+            >
+              <PrimaryButton>
+                Start A Project
+              </PrimaryButton>
+            </div>
 
-            <button className="rounded-xl border border-white/20 px-6 py-3 font-semibold hover:bg-white/5">
+            <button
+              onClick={() =>
+                navigate(
+                  "/projects"
+                )
+              }
+              className="rounded-xl border border-white/20 px-6 py-3 font-semibold transition hover:bg-white/5"
+            >
               View Projects
             </button>
           </div>

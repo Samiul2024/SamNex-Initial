@@ -111,11 +111,13 @@ const Booking = () => {
                 Select Budget
               </option>
 
-              <option>$500 - $1000</option>
+              <option>৳5000 - ৳10000</option>
 
-              <option>$1000 - $3000</option>
+              <option>৳10000 - ৳30000</option>
+              <option>৳30000 - ৳50000</option>
+              <option>৳50000 - ৳100000</option>
 
-              <option>$3000+</option>
+              <option>৳100000+</option>
             </select>
 
             <textarea
