@@ -1,10 +1,17 @@
+import SEO from "../components/seo/SEO"
+
+import PortfolioSection from "../components/projects/PortfolioSection"
+
 const Projects = () => {
   return (
-    <div className="section-padding container">
-      <h1 className="text-4xl font-bold">
-        Projects
-      </h1>
-    </div>
+    <>
+      <SEO
+        title="Projects"
+        description="Explore scalable MERN stack and AI-assisted projects developed by SamNex."
+      />
+
+      <PortfolioSection />
+    </>
   )
 }
 

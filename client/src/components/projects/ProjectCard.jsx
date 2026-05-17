@@ -1,49 +1,31 @@
-import { motion } from "framer-motion"
-
-import {
-  FaExternalLinkAlt,
-  FaGithub,
-} from "react-icons/fa"
-
-import {
-  Link,
-} from "react-router-dom"
+import { Link } from "react-router-dom"
 
 const ProjectCard = ({
   project,
 }) => {
   return (
-    <motion.div
-      whileHover={{
-        y: -10,
-      }}
-      className="overflow-hidden rounded-3xl border border-white/10 bg-secondary"
-    >
+    <div className="overflow-hidden rounded-3xl border border-white/10 bg-secondary transition duration-300 hover:-translate-y-2">
       <img
         src={project.image}
         alt={project.title}
-        className="h-60 w-full object-cover"
+        className="h-64 w-full object-cover"
       />
 
-      <div className="p-6">
-        <div className="mb-4 flex items-center justify-between">
-          <span className="rounded-full bg-primary/20 px-4 py-2 text-sm text-primary">
-            {project.category}
-          </span>
-        </div>
+      <div className="p-8">
+        <span className="mb-4 inline-block rounded-full bg-primary/20 px-4 py-2 text-sm text-primary">
+          {project.category}
+        </span>
 
         <h3 className="mb-4 text-3xl font-black">
           {project.title}
         </h3>
 
         <p className="mb-6 text-gray-400">
-          {
-            project.description
-          }
+          {project.description}
         </p>
 
-        <div className="mb-6 flex flex-wrap gap-2">
-          {project.stack.map(
+        <div className="mb-6 flex flex-wrap gap-3">
+          {project.technologies.map(
             (
               tech,
               index
@@ -58,36 +40,25 @@ const ProjectCard = ({
           )}
         </div>
 
-        <div className="flex gap-3">
+        <div className="flex gap-4">
+          <a
+            href={project.live}
+            target="_blank"
+            rel="noreferrer"
+            className="rounded-xl bg-primary px-5 py-3 font-semibold"
+          >
+            Live Demo
+          </a>
+
           <Link
             to={`/projects/${project.slug}`}
-            className="rounded-xl bg-primary px-5 py-3 font-bold"
+            className="rounded-xl border border-white/10 px-5 py-3 font-semibold"
           >
-            View Details
+            Details
           </Link>
-
-          <a
-            href={
-              project.liveLink
-            }
-            target="_blank"
-            className="rounded-xl border border-white/10 px-5 py-3"
-          >
-            <FaExternalLinkAlt />
-          </a>
-
-          <a
-            href={
-              project.githubLink
-            }
-            target="_blank"
-            className="rounded-xl border border-white/10 px-5 py-3"
-          >
-            <FaGithub />
-          </a>
         </div>
       </div>
-    </motion.div>
+    </div>
   )
 }
 
