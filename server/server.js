@@ -11,6 +11,8 @@ import connectDB from "./config/db.js"
 
 import routes from "./routes/index.js"
 
+import projectRoutes from "./routes/projectRoutes.js"
+
 import  notFound  from "./middleware/notFound.js"
 
 import  errorHandler  from "./middleware/errorMiddleware.js"
@@ -51,6 +53,11 @@ app.use(express.json())
 app.use(morgan("dev"))
 
 app.use("/api", routes)
+
+app.use(
+  "/api/projects",
+  projectRoutes
+)
 
 app.use(notFound)
 

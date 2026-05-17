@@ -1,23 +1,23 @@
 import express from "express"
 
 import {
-  createProject,
   getProjects,
-  updateProjectStatus,
+  createProject,
+  updateProject,
+  deleteProject,
 } from "../controllers/projectController.js"
 
-import { protect } from "../middleware/authMiddleware.js"
+const router =
+  express.Router()
 
-const router = express.Router()
+router
+  .route("/")
+  .get(getProjects)
+  .post(createProject)
 
-router.get("/", getProjects)
-
-router.post("/", protect, createProject)
-
-router.put(
-  "/:id",
-  protect,
-  updateProjectStatus
-)
+router
+  .route("/:id")
+  .put(updateProject)
+  .delete(deleteProject)
 
 export default router
