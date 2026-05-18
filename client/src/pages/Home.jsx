@@ -20,8 +20,11 @@ const Home = () => {
   return (
     <>
       <SEO
-        title="AI-Assisted MERN Stack Agency"
-        description="SamNex builds scalable MERN stack platforms, SaaS systems, AI integrations, dashboards, automation tools, and modern digital experiences."
+        title="SamNex | AI-Assisted MERN Stack Agency"
+        description="SamNex is a modern AI-assisted software agency building scalable MERN stack applications, SaaS platforms, dashboards and business solutions."
+        keywords="SamNex, MERN Stack Developer, React Developer, Node.js Agency, Bangladesh Web Developer, SaaS Development, AI Agency"
+        image="https://images.unsplash.com/photo-1516321318423-f06f85e504b3?q=80&w=1200&auto=format&fit=crop"
+        url="https://samnex.vercel.app"
       />
 
       <HeroSection />
