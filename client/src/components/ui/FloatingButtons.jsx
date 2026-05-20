@@ -3,7 +3,7 @@ import {
   FaWhatsapp,
   FaPhoneAlt,
 } from "react-icons/fa";
-import contactInfo from "../../data/contactInfo";
+import contactInfo from "../data/contactInfo";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState } from "react";
 
