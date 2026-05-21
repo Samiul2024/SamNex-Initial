@@ -1,6 +1,6 @@
 const stats = [
   {
-    number: "3+",
+    number: "5+",
     label: "Projects Built",
   },
 

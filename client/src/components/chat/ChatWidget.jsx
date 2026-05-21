@@ -2,79 +2,206 @@ import {
   FaFacebookMessenger,
   FaWhatsapp,
   FaPhoneAlt,
+  FaComments,
 } from "react-icons/fa";
-import contactInfo from "../../data/contactInfo";
-import { motion, AnimatePresence } from "framer-motion";
-import { useState } from "react";
 
-export default function FloatingButtons() {
-  const [open, setOpen] = useState(false);
+import {
+  motion,
+  AnimatePresence,
+} from "framer-motion";
+
+import {
+  useEffect,
+  useRef,
+  useState,
+} from "react";
+
+import contactInfo from "../../data/contactInfo";
+
+const FloatingButtons = () => {
+  const [open, setOpen] =
+    useState(false);
+
+  const wrapperRef =
+    useRef(null);
+
+  useEffect(() => {
+    const handleClickOutside = (
+      event
+    ) => {
+      if (
+        wrapperRef.current &&
+        !wrapperRef.current.contains(
+          event.target
+        )
+      ) {
+        setOpen(false);
+      }
+    };
+
+    document.addEventListener(
+      "mousedown",
+      handleClickOutside
+    );
+
+    return () => {
+      document.removeEventListener(
+        "mousedown",
+        handleClickOutside
+      );
+    };
+  }, []);
 
   return (
     <div
-      className="fixed bottom-6 right-6 z-50"
-      onMouseEnter={() => setOpen(true)}
-      onMouseLeave={() => setOpen(false)}
+      ref={wrapperRef}
+      className="
+        fixed
+        bottom-4
+        right-4
+        sm:bottom-6
+        sm:right-6
+        z-50
+      "
     >
       <div className="flex flex-col items-end gap-3">
-
-        {/* 🔥 EXPANDED BUTTONS */}
         <AnimatePresence>
           {open && (
             <>
-              {/* Messenger */}
               <motion.a
-                initial={{ opacity: 0, y: 20, scale: 0.8 }}
-                animate={{ opacity: 1, y: 0, scale: 1 }}
-                exit={{ opacity: 0, y: 20, scale: 0.8 }}
-                transition={{ duration: 0.2 }}
-                href={contactInfo.messenger}
+                initial={{
+                  opacity: 0,
+                  y: 20,
+                  scale: 0.7,
+                }}
+                animate={{
+                  opacity: 1,
+                  y: 0,
+                  scale: 1,
+                }}
+                exit={{
+                  opacity: 0,
+                  y: 20,
+                  scale: 0.7,
+                }}
+                transition={{
+                  duration: 0.2,
+                }}
+                href={
+                  contactInfo.whatsapp
+                }
                 target="_blank"
                 rel="noreferrer"
-                className="group relative bg-blue-500 text-white p-4 rounded-full shadow-xl text-xl"
+                className="
+                  bg-green-500
+                  hover:bg-green-600
+                  text-white
+                  p-4
+                  rounded-full
+                  shadow-2xl
+                  text-xl
+                "
               >
-                <FaFacebookMessenger />
-
-                <span className="absolute right-16 bg-black text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition">
-                  Messenger
-                </span>
+                <FaWhatsapp />
               </motion.a>
 
-              {/* Call */}
               <motion.a
-                initial={{ opacity: 0, y: 20, scale: 0.8 }}
-                animate={{ opacity: 1, y: 0, scale: 1 }}
-                exit={{ opacity: 0, y: 20, scale: 0.8 }}
-                transition={{ duration: 0.2, delay: 0.05 }}
+                initial={{
+                  opacity: 0,
+                  y: 20,
+                  scale: 0.7,
+                }}
+                animate={{
+                  opacity: 1,
+                  y: 0,
+                  scale: 1,
+                }}
+                exit={{
+                  opacity: 0,
+                  y: 20,
+                  scale: 0.7,
+                }}
+                transition={{
+                  duration: 0.2,
+                  delay: 0.05,
+                }}
+                href={
+                  contactInfo.messenger
+                }
+                target="_blank"
+                rel="noreferrer"
+                className="
+                  bg-blue-500
+                  hover:bg-blue-600
+                  text-white
+                  p-4
+                  rounded-full
+                  shadow-2xl
+                  text-xl
+                "
+              >
+                <FaFacebookMessenger />
+              </motion.a>
+
+              <motion.a
+                initial={{
+                  opacity: 0,
+                  y: 20,
+                  scale: 0.7,
+                }}
+                animate={{
+                  opacity: 1,
+                  y: 0,
+                  scale: 1,
+                }}
+                exit={{
+                  opacity: 0,
+                  y: 20,
+                  scale: 0.7,
+                }}
+                transition={{
+                  duration: 0.2,
+                  delay: 0.1,
+                }}
                 href={`tel:${contactInfo.phone}`}
-                className="group relative bg-orange-500 text-white p-4 rounded-full shadow-xl text-xl"
+                className="
+                  bg-orange-500
+                  hover:bg-orange-600
+                  text-white
+                  p-4
+                  rounded-full
+                  shadow-2xl
+                  text-xl
+                "
               >
                 <FaPhoneAlt />
-
-                <span className="absolute right-16 bg-black text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition">
-                  Call
-                </span>
               </motion.a>
             </>
           )}
         </AnimatePresence>
 
-        {/* 🔥 MAIN (WHATSAPP) BUTTON */}
-        <motion.a
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
-          href={contactInfo.whatsapp}
-          target="_blank"
-          rel="noreferrer"
-          className="group relative bg-green-500 text-white p-5 rounded-full shadow-2xl text-2xl animate-pulse"
+        <motion.button
+          whileTap={{
+            scale: 0.9,
+          }}
+          onClick={() =>
+            setOpen(!open)
+          }
+          className="
+            bg-emerald-700
+            hover:bg-emerald-800
+            text-white
+            p-5
+            rounded-full
+            shadow-2xl
+            text-2xl
+          "
         >
-          <FaWhatsapp />
-
-          <span className="absolute right-20 bg-black text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition">
-            Chat Now
-          </span>
-        </motion.a>
+          <FaComments />
+        </motion.button>
       </div>
     </div>
   );
-}
+};
+
+export default FloatingButtons;

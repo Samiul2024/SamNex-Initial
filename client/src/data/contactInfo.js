@@ -1,6 +1,6 @@
 const contactInfo = {
-  phone: "+8801766768546",
-  whatsapp: "https://wa.me/8801766768546",
+  phone: "+8801410768546",
+  whatsapp: "https://wa.me/8801410768546",
   messenger: "https://m.me/mdsamiullahossen20/", 
 };
 
