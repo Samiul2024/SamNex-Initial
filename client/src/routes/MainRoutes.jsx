@@ -1,45 +1,66 @@
-import { Routes, Route } from "react-router-dom"
+import { Routes, Route } from "react-router-dom";
 
-import MainLayout from "../layouts/MainLayout"
+import MainLayout from "../layouts/MainLayout";
 
-import Home from "../pages/Home"
-import Projects from "../pages/Projects"
-import Contact from "../pages/Contact"
-import Services from "../pages/Services"
-import ProjectDetails from "../pages/projects/ProjectDetails"
-import Booking from "../pages/Booking"
+import Home from "../pages/Home";
+import Projects from "../pages/Projects";
+import Contact from "../pages/Contact";
+import Services from "../pages/Services";
+import ProjectDetails from "../pages/projects/ProjectDetails";
+import Booking from "../pages/Booking";
+import Founder from "../pages/founder";
 
 const MainRoutes = () => {
   return (
     <Routes>
+      {/* Main Website Layout */}
       <Route path="/" element={<MainLayout />}>
-        <Route index element={<Home />} />
+        
+        {/* Home */}
+        <Route
+          index
+          element={<Home />}
+        />
 
+        {/* Projects */}
         <Route
           path="projects"
           element={<Projects />}
         />
 
+        {/* Project Details */}
         <Route
           path="projects/:slug"
           element={<ProjectDetails />}
         />
 
+        {/* Services */}
         <Route
           path="services"
           element={<Services />}
         />
 
-          <Route path="/booking" element={<Booking />} />
+        {/* Booking */}
+        <Route
+          path="booking"
+          element={<Booking />}
+        />
 
+        {/* Founder */}
+        <Route
+          path="founder"
+          element={<Founder />}
+        />
 
+        {/* Contact */}
         <Route
           path="contact"
           element={<Contact />}
         />
+
       </Route>
     </Routes>
-  )
-}
+  );
+};
 
-export default MainRoutes
+export default MainRoutes;
