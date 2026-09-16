@@ -1,5 +1,35 @@
 export const projects = [
   {
+    id: 6,
+
+    title: "Kazi Office Boyra",
+
+    slug: "kazi-office-boyra",
+
+    category:
+      "Business Management Platform",
+
+    image:
+      "https://images.unsplash.com/photo-1497366811353-6870744d04b2?q=80&w=1600&auto=format&fit=crop",
+
+    live:
+      "https://kaziofficeboyra.vercel.app/",
+
+    description:
+      "Modern professional business and office website designed with a clean responsive interface, clear service presentation, and user-focused architecture for an organization based in Boyra.",
+
+    technologies: [
+      "React",
+      "TailwindCSS",
+      "Vite",
+      "Framer Motion",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+    ],
+  },
+
+  {
     id: 5,
 
     title: "Darul Iman Islamiyah",
