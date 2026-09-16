@@ -8,7 +8,7 @@ import Contact from "../pages/Contact";
 import Services from "../pages/Services";
 import ProjectDetails from "../pages/projects/ProjectDetails";
 import Booking from "../pages/Booking";
-import Founder from "../pages/founder";
+import Founder from "../pages/Founder";
 
 const MainRoutes = () => {
   return (
